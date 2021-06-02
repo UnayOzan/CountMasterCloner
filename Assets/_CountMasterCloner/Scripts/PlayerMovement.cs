@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     {
         var pos = transform.position;
         pos.x = dynamicJoystick.Horizontal;
+        pos.z = transform.position.z + Time.deltaTime * 10f;
         pos.y = dynamicJoystick.Vertical;
         transform.position = pos;
     }

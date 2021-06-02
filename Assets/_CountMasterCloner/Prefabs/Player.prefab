@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &730819594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 730819595}
+  m_Layer: 0
+  m_Name: ProjectilePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &730819595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730819594}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4890393962431785445}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4890393960719429414
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,13 +249,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 4894892938368906885, guid: aecec41fe94034447a3ca16ccd505714,
     type: 3}
+  projectilePool: []
+  poolAmount: 100
+  poolHolder: {fileID: 730819595}
   centers:
   - {fileID: 4890393960728742330}
   - {fileID: 4890393962274870340}
   - {fileID: 4890393960719429415}
   - {fileID: 4890393961139965504}
   centerProjectileAmounts: 08000000160000002500000037000000
-  currentProjectileAmount: 15
+  currentProjectileAmount: 20
 --- !u!1 &4890393962274870339
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +318,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4890393962035094554}
+  - {fileID: 730819595}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

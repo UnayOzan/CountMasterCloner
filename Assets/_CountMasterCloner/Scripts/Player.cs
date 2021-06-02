@@ -7,6 +7,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private GameObject projectile;
+    [SerializeField] private List<GameObject> projectilePool;
+    [SerializeField] private int poolAmount;
+    [SerializeField] private Transform poolHolder;
     [SerializeField] private List<Transform> centers;
 
     [SerializeField] private List<int> centerProjectileAmounts;
@@ -16,6 +19,13 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        for (var i = 0; i < poolAmount; i++)
+        {
+            var project = Instantiate(projectile, poolHolder);
+            project.SetActive(false);
+            projectilePool.Add(project);
+        }
+
         UpdatePositions();
     }
 
@@ -29,12 +39,6 @@ public class Player : MonoBehaviour
 
     public void UpdatePositions()
     {
-        //cleanup the list
-        foreach (var item in centers.SelectMany(center => center.Cast<Transform>()))
-        {
-            Destroy(item.gameObject);
-        }
-
         remainingProjectileAmount = currentProjectileAmount;
 
         for (var i = 0; i < centerProjectileAmounts.Count; i++)
@@ -54,9 +58,11 @@ public class Player : MonoBehaviour
                     break;
 
                 var pos = centers[i].transform.position + Vector3.right * (i + 1);
-                var project = Instantiate(projectile, pos, Quaternion.identity, centers[i]);
-                project.name += " - " + j;
+                var project = projectilePool[remainingProjectileAmount];
+                project.SetActive(true);
+                project.transform.parent = centers[i];
                 project.transform.RotateAround(centers[i].transform.position, Vector3.forward, rotationAmount * j);
+                project.transform.position = pos;
             }
 
             if (remainingProjectileAmount <= 0)
