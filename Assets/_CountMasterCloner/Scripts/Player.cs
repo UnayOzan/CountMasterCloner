@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -57,12 +58,12 @@ public class Player : MonoBehaviour
                 if (remainingProjectileAmount <= 0)
                     break;
 
-                var pos = centers[i].transform.position + Vector3.right * (i + 1);
+                var pos = centers[i].transform.position + Vector3.right * (i / 1.5f + 1);
                 var project = projectilePool[remainingProjectileAmount];
                 project.SetActive(true);
                 project.transform.parent = centers[i];
+                project.transform.position = pos; //DOLocalMove(pos, 1f);
                 project.transform.RotateAround(centers[i].transform.position, Vector3.forward, rotationAmount * j);
-                project.transform.position = pos;
             }
 
             if (remainingProjectileAmount <= 0)
