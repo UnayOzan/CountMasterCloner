@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private List<int> centerProjectileAmounts;
 
-    [SerializeField] private int currentProjectileAmount;
+    [SerializeField] public int currentProjectileAmount;
     private int remainingProjectileAmount;
 
     private void Start()
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void UpdatePositions()
+    public void UpdatePositions()
     {
         //cleanup the list
         foreach (var item in centers.SelectMany(center => center.Cast<Transform>()))
