@@ -1,18 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private DynamicJoystick dynamicJoystick;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        var pos = transform.position;
+        pos.x = dynamicJoystick.Horizontal;
+        pos.y = dynamicJoystick.Vertical;
+        transform.position = pos;
     }
 }
