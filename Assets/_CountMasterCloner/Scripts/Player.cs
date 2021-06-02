@@ -40,23 +40,26 @@ public class Player : MonoBehaviour
         for (var i = 0; i < centerProjectileAmounts.Count; i++)
         {
             var lenght = centerProjectileAmounts[i];
+
+            if (lenght > remainingProjectileAmount)
+                lenght = remainingProjectileAmount - 1;
+
             var rotationAmount = 360f / lenght;
-            
+
             for (var j = 0; j < lenght; j++)
             {
                 remainingProjectileAmount--;
-                Debug.Log("Spend:" + remainingProjectileAmount);
-                
-                if(remainingProjectileAmount <= 0 )
+
+                if (remainingProjectileAmount <= 0)
                     break;
-                
+
                 var pos = centers[i].transform.position + Vector3.right * (i + 1);
                 var project = Instantiate(projectile, pos, Quaternion.identity, centers[i]);
                 project.name += " - " + j;
                 project.transform.RotateAround(centers[i].transform.position, Vector3.forward, rotationAmount * j);
             }
-            
-            if(remainingProjectileAmount <= 0 )
+
+            if (remainingProjectileAmount <= 0)
                 break;
         }
     }

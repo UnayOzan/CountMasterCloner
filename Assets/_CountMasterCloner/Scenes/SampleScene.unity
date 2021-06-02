@@ -358,7 +358,7 @@ MonoBehaviour:
   - {fileID: 1383101079}
   - {fileID: 2070107120}
   centerProjectileAmounts: 08000000160000002500000037000000
-  currentProjectileAmount: 30
+  currentProjectileAmount: 15
 --- !u!1 &878965844
 GameObject:
   m_ObjectHideFlags: 0
