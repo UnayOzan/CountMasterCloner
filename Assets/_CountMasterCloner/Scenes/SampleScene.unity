@@ -337,6 +337,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0b2fcf2d869cd34badf3415a81bee72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 2627926282140756080, guid: aecec41fe94034447a3ca16ccd505714,
+    type: 3}
+  centers:
+  - {fileID: 1390810122}
+  - {fileID: 1057884660}
+  - {fileID: 1383101079}
+  - {fileID: 2070107120}
+  centerProjectileAmounts:
+  - 3
+  - 5
+  - 7
+  - 10
 --- !u!1 &926040270
 GameObject:
   m_ObjectHideFlags: 0
